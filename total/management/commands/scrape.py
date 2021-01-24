@@ -10,7 +10,6 @@ class Command(BaseCommand):
 	help = 'Refresh Database item'
 
 	def handle(self, *args, **options):
-		year_digit = {'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr':4, 'May':'5', 'Jun':'6', 'Jul':'7', 'Aug':'8', 'Sep':'9', 'Oct':'10', 'Nov':'11', 'Dec':'12'}
 		url = requests.get('https://covid19.ncdc.gov.ng/')
 
 		soup = BeautifulSoup(url.content, 'html.parser')

@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -66,6 +66,21 @@ class endpoints(APIView):
 
 
 def login_user(request):
+	# if request.method == 'POST':
+	# 	form = LoginForm(request.POST)
+	# 	if form.is_valid():
+	# 		username = form.cleaned_data['username']
+	# 		password = form.cleaned_data['password']
+	# 		user = authenticate(request, username=username, password=password)
+	# 		login(request, user)
+
+	# 	else:
+	# 		messages.info(request, 'Incorrect Details provided ')
+	# 		return redirect('login')
+	# else:
+	# 	form = LoginForm()
+	# return render(request, 'login.html', {'form':form,})
+
 	next = request.GET.get('next')
 	if request.method == 'POST':
 		username = request.POST['username']
@@ -74,12 +89,8 @@ def login_user(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			
-		else:
-			messages.warning(request, 'Incorrect Username and / or Password')
-	# else:
-	#     form = LoginForm()
-	return render(request, 'login.html', {'form': form,})
+
+	return render(request, 'login.html', {})
 
 def logout_user(request):
 	logout(request)
@@ -103,7 +114,7 @@ def register_user(request):
 			new_user.save()
 			Token.objects.create(user=new_user)
 			messages.info(request, 'registration successfull, Login First')
-			return redirect('profile')
+			return redirect('login')
 			# return render(request, 'register_success.html', {'new_user': new_user})
 	else:
 		form = RegisterForm()
@@ -123,6 +134,7 @@ class LoginView(APIView):
 
 		else:
 			return Response({"error": "wrong credentials"})
+
 
 class TotalListView(APIView):
 	'''

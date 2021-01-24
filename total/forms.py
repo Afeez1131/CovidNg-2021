@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label='',  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
-    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+    username = forms.CharField(label = '', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password = forms.CharField(label = '', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(label = '', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
@@ -29,10 +29,6 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Verify Password'
         self.fields['password2'].help_text = ''
         self.fields['password2'].help_text = '<small><ul><li>Enter the same password as before, for verification.</li></ul></small>'
-
-# class ContactForm(forms.Form):
-#     username = forms.CharField(label='',  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
-#     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='',  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}))
