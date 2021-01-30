@@ -29,10 +29,7 @@ def contact(request):
 		email = request.POST['email']
 		message = request.POST['message']
 		print(name, email, message)
-		# send_mail(subject='API message',
-  #   			message= message,
-  #   			from_email= email,
-  #   			recipient_list= [settings.EMAIL_HOST_USER])
+		send_mail(subject='API message', message= message, from_email= email, recipient_list= ['jobscraper0@gmail.com'])
 		messages.success(request, 'Message sent Successfully')
 		return redirect('home')
 	else:
