@@ -63,20 +63,7 @@ class endpoints(APIView):
 
 
 def login_user(request):
-	# if request.method == 'POST':
-	# 	form = LoginForm(request.POST)
-	# 	if form.is_valid():
-	# 		username = form.cleaned_data['username']
-	# 		password = form.cleaned_data['password']
-	# 		user = authenticate(request, username=username, password=password)
-	# 		login(request, user)
-
-	# 	else:
-	# 		messages.info(request, 'Incorrect Details provided ')
-	# 		return redirect('login')
-	# else:
-	# 	form = LoginForm()
-	# return render(request, 'login.html', {'form':form,})
+	
 
 	next = request.GET.get('next')
 	if request.method == 'POST':
