@@ -3,3 +3,4 @@
 *.sqlite3
 covid19/__pycache__
 total/__pycache__
+.vscode

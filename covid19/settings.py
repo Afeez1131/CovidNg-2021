@@ -46,17 +46,16 @@ INSTALLED_APPS = [
 
     'total',
 
-    #Rest API
+    # Rest API
     'rest_framework',
     'rest_framework.authtoken',
 
-    'django_pygments',
-
 ]
 
+
 REST_FRAMEWORK = {
-        'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-        'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
@@ -142,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS= [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 
 ]

@@ -26,8 +26,6 @@ python-decouple==3.3
 python-dotenv==0.15.0
 pytz==2020.1
 requests==2.23.0
-ruamel.yaml==0.16.12
-ruamel.yaml.clib==0.2.2
 simplejson==3.17.2
 soupsieve==2.0
 sqlparse==0.3.1

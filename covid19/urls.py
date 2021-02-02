@@ -19,13 +19,14 @@ from total import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-	path('', views.home, name='home'),
+    path('', views.home, name='home'),
     path('register/', views.register_user, name='register'),
     path('contact/', views.contact, name='contact'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    #api/v2/login
+    # api/v2/login
     path('logout/', views.logout_user, name='logout'),
     path('profile/', views.profile, name='profile'),
     path('admin/', admin.site.urls),
     path('api/v2/', include('total.urls')),
+
 ]
