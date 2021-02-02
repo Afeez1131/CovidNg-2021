@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 class Total(models.Model):
-    # day = models.DateField(max_length=200)
+    day = models.CharField(max_length=200)
     # day = models.CharField()
     confirmed = models.CharField(max_length=200)
     discharged = models.CharField(max_length=200)
