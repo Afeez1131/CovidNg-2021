@@ -5,8 +5,8 @@ from datetime import datetime
 
 
 class Total(models.Model):
-    day = models.IntegerField()
-    # day = models.CharField()
+    # day = models.IntegerField()
+    day = models.CharField(max_length=100)
     confirmed = models.CharField(max_length=200)
     discharged = models.CharField(max_length=200)
     death = models.CharField(max_length=200)
