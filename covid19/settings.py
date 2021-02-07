@@ -166,3 +166,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
+
+
+# handler404 = total.views.handler404
+# handler500 = total.views.handler500

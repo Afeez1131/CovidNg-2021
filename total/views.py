@@ -1,5 +1,5 @@
 from django.shortcuts import (render, get_object_or_404,
-                              get_list_or_404, redirect)
+                              get_list_or_404, redirect, HttpResponse)
 from .models import Total
 from .serializer import TotalSerializer, Serializer  # , UserSerializer
 from rest_framework.views import APIView
@@ -247,3 +247,11 @@ class GetSepDate(APIView):
             return Response(data)
         else:
             return Response({'error': 'Invalid Token'})
+
+
+def handler404(request):
+    return HttpResponse('404')
+
+
+def handler500(request):
+    return HttpResponse('500')
