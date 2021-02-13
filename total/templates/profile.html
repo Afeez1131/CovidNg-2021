@@ -16,10 +16,10 @@
                     <div class="col-md-1">Token:</div>
                     <div class="col-md-8">
                         <div class="form-group">
-                            <input type="text" class="form-control" value="{{user.auth_token}}" id="token">
+                            <input type="text" class="form-control" value="{{user.auth_token}}" id="token" disabled>
                         </div>
                     </div>
-                    <div class="col-md-1"><input type="button" value="Copy" class="btn btn-secondary rounded" id='name' onclick="myFunction(); changeparagraph()"></button></div>
+                    <div class="col-md-1"><input type="button" value="Copy" class="btn btn-outline-success" id='name' onclick="myFunction(); changeparagraph()"></button></div>
                 </div>
             </li>
         </ul>
@@ -39,10 +39,10 @@
             document.getElementById("name").value = "copied";
         }
         </script>
+    </div><br>
+    <div class="container text-center"><h4><a href="{%url 'edit_profile' %}">Edit Profile</a></h4>
     </div>
-    <br>
     <hr><br>
-    <div class="text-center">
-    </div>
+    
 </div><br>
 {% endblock %}

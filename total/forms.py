@@ -2,12 +2,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
+
 class LoginForm(forms.Form):
-    username = forms.CharField(label = '', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
-    password = forms.CharField(label = '', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
-    
+    username = forms.CharField(label='', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'placeholder': 'Password'}))
+
+
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(label = '', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
+    email = forms.EmailField(label='', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email'}))
 
     class Meta:
         model = User
@@ -30,7 +35,27 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].help_text = ''
         self.fields['password2'].help_text = '<small><ul><li>Enter the same password as before, for verification.</li></ul></small>'
 
+
 class ContactForm(forms.Form):
-    name = forms.CharField(label='',  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}))
-    message = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message'}))
-    email = forms.EmailField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'E-mail'}))
+    name = forms.CharField(label='',  widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Name'}))
+    message = forms.CharField(label='', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Message'}))
+    email = forms.EmailField(label='', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'E-mail'}))
+
+
+class ProfileForm(forms.ModelForm):
+    username = forms.CharField(label='Username', help_text='<small>Required. 150 characters or fewer. Letters, \
+        digits and @/./+/-/_ only.</small>',
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    first_name = forms.CharField(label='First Name', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(label='Last Name', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
+    email = forms.EmailField(label='E-mail', widget=forms.EmailInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email'}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')

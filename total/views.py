@@ -9,12 +9,12 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from rest_framework.renderers import StaticHTMLRenderer
+from django.contrib.auth.decorators import login_required
 # from total.decorators import add_get_request
 # from django.views.decorators.http import require_http_methods
 # Create your views here.
@@ -98,6 +98,8 @@ def register_user(request):
     new_user = None
     if request.method == 'POST':
         form = RegisterForm(request.POST)
+        User.objects.get(email)
+
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -249,9 +251,15 @@ class GetSepDate(APIView):
             return Response({'error': 'Invalid Token'})
 
 
-def handler404(request):
-    return HttpResponse('404')
-
-
-def handler500(request):
-    return HttpResponse('500')
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            messages.warning(request, 'Error occured')
+    else:
+        form = ProfileForm(instance=request.user)
+    return render(request, 'edit_profile.html', {'form': form})

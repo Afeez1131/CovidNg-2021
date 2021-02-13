@@ -31,9 +31,17 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['covidapi-ng.herokuapp.com]
+
+# authentication overwrite
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'total.authentication.EmailAuthBackend',
+]
 
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 # Application definition
 
 INSTALLED_APPS = [

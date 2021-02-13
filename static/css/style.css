@@ -174,18 +174,6 @@ section {
 .navbar .nav-link {
   color: white;
 }
-#contact {
-  background-color: #ddd;
-  color: #555;
-  text-align: center;
-  font-size: 30px;
-  text-decoration: none;
-}
-
-#contact:hover {
-  background-color: #ddf;
-  color: #000;
-}
 
 .navbar .nav-link:hover {
   color: #43aea0;
@@ -382,10 +370,11 @@ section {
   border-color: #1d443f;
 }
 
-/*.col-md-8 .form-group .form-control{
+.row .col-md-8 .form-group .form-control {
   color: transparent;
-  text-shadow: 0 0 3px #70b9b0;
-}*/
+  text-shadow: 0 0 3px #383a3a;
+  font-size: 14px;
+}
 
 span .btn {
   color: #1d443f;
@@ -421,4 +410,12 @@ span .btn {
 
 .hero-container .text:hover {
   color: #43aea0;
+}
+
+.nav-item .btn {
+  padding: 0px;
+}
+
+.nav-item .btn:hover {
+  display: none;
 }

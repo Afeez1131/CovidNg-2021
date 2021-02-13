@@ -1,38 +1,36 @@
 <nav class="navbar navbar-expand-lg  navbar-expand fixed-top">
-  <a class="navbar-brand text-white" href="{% url 'home' %}">ANONYMOUS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <a class="navbar-brand text-white" href="{% url 'home' %}">COVID<sup>ng </sup>API</a>
+  <button class="navbar-toggler" type="button">
+    
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" disabled>{{ user.username| upper }}</a>
+        <button class="btn btn-outline-success"><a class="nav-link" style="font-size: 14px;" disabled>{{ user.username| upper }}</a>
+      </li></button>
+      <li class="nav-item">
+        <a class="nav-link active" style="font-size: 14px;" href="{% url 'home' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'home' %}">Home</a>
+        <a class="nav-link" style="font-size: 14px;" href="{% url 'logout' %}">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        <a class="nav-link active" style="font-size: 14px;" href="{% url 'profile' %}">Profile</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-      </li>
-
+      
+      
       {% else %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-link" style="font-size: 14px;" href="{% url 'login' %}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        <a class="nav-link" style="font-size: 14px;" href="{% url 'register' %}">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'register' %}">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact Us</a></a>
+        <a class="nav-link" style="font-size: 14px;" href="#contact">Contact</a></a>
       </li>
       
       {% endif %}
