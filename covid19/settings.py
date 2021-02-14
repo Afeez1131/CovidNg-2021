@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['covidapi-ng.herokuapp.com]
+ALLOWED_HOSTS = ['covidapi-ng.herokuapp.com', '127.0.0.1', 'localhost']
 
 # authentication overwrite
 AUTHENTICATION_BACKENDS = [
@@ -40,8 +40,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 # Application definition
 
 INSTALLED_APPS = [
@@ -106,16 +104,13 @@ WSGI_APPLICATION = 'covid19.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
 
-
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
