@@ -63,7 +63,7 @@ section {
 
 #hero:before {
   content: "";
-  background: rgba(112, 185, 176, 0.85);
+  background: #70b9b0d9;
   position: absolute;
   bottom: 0;
   top: 0;
