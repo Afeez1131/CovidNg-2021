@@ -28,6 +28,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('admin/', admin.site.urls),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
-    path('api/v2/', include('total.urls')),
+    path('api/', include('total.urls')),
 
 ]
