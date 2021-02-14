@@ -16,10 +16,3 @@ class Total(models.Model):
 
     def __str__(self):
         return str(self.day)
-
-
-class Count(models.Model):
-    count = models.IntegerField(default=0)
-
-    def __str__(self):
-        return str(self.count)

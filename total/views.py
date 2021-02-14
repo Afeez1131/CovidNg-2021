@@ -98,7 +98,6 @@ def register_user(request):
     new_user = None
     if request.method == 'POST':
         form = RegisterForm(request.POST)
-        User.objects.get(email)
 
         if form.is_valid():
             username = form.cleaned_data['username']
