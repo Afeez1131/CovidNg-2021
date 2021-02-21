@@ -9,17 +9,15 @@
       
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <button class="btn btn-outline-success"><a class="nav-link" style="font-size: 14px;" disabled>{{ user.username| upper }}</a>
+        <a class="nav-link" style="font-size: 14px; font-style: oblique;" disabled>{{ user.username| upper }}</a>
       </li></button>
       <li class="nav-item">
-        <a class="nav-link active" style="font-size: 14px;" href="{% url 'home' %}">Home</a>
+        <a class="nav-link active" style="font-size: 14px;" href="{% url 'profile' %}">Profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" style="font-size: 14px;" href="{% url 'logout' %}">Logout</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" style="font-size: 14px;" href="{% url 'profile' %}">Profile</a>
-      </li>
+      
       
       
       {% else %}

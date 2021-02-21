@@ -16,33 +16,34 @@
                     <div class="col-md-1">Token:</div>
                     <div class="col-md-8">
                         <div class="form-group">
-                            <input type="text" class="form-control" value="{{user.auth_token}}" id="token" disabled>
+                            <input type="text" class="form-control" value="{{user.auth_token}}" id="token" >
                         </div>
                     </div>
-                    <div class="col-md-1"><input type="button" value="Copy" class="btn btn-outline-success" id='name' onclick="myFunction(); changeparagraph()"></button></div>
+                    <div class="col-md-1">
+                        <input type="button" class="btn btn-secondary" onclick="Copy(), change();" value="Copy" id="copy">
+                        <!-- <button class="btn" onclick="Copy(), change()" id='copy' value='copy'> -->
+                        </button>
                 </div>
             </li>
         </ul>
         <script>
-        function myFunction() {
-            /* Get the text field */
-            var copyText = document.getElementById("token");
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+            var copy_text_val = document.querySelector('#token');
 
-            /* Copy the text inside the text field */
+            function Copy() {
+            copy_text_val.select();
             document.execCommand("copy");
-        }
 
-        function changeparagraph() {
-            document.getElementById("name").value = "copied";
+            } 
+
+            function change(){
+            document.getElementById("copy").value="Copied"; 
         }
-        </script>
+            </script>
     </div><br>
     <div class="container text-center"><h4><a href="{%url 'edit_profile' %}">Edit Profile</a></h4>
     </div>
     <hr><br>
     
 </div><br>
+    
 {% endblock %}
